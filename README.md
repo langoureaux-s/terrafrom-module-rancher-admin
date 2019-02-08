@@ -11,7 +11,7 @@ terragrunt = {
   project_name            = "test"
   stack_name              = "admin"
   finish_upgrade          = "true"
-  label_global_scheduling = "admin=true"
+  label_scheduling        = "admin=true"
   external_links          = ["elasticsearch/elasticsearch:elasticsearch", "kibana/kibana:kibana"]
   volumes                 = ["elasticsearch_conf_xpack:/mnt/x-pack"]
   volumes_name            = ["elasticsearch_conf_xpack"]

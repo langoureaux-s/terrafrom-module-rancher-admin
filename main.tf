@@ -22,7 +22,7 @@ data "template_file" "docker_compose_admin" {
   vars {
     external_links          = "${indent(6, join("\n", formatlist("- %s", var.external_links)))}"
     volumes                 = "${indent(6, join("\n", formatlist("- %s", var.volumes)))}"
-    label_global_scheduling = "${var.label_global_scheduling}"
+    label_scheduling        = "${var.label_scheduling}"
     volumes_section         = "${indent(2, join("\n", formatlist("%s:\n  driver: %s\n  external: %s\n", var.volumes_name, var.volumes_driver, var.volumes_external)))}"
   }
 }
@@ -30,7 +30,6 @@ data "template_file" "rancher_compose_admin" {
   template = "${file("${path.module}/rancher/admin/rancher-compose.yml")}"
 
   vars {
-
   }
 }
 resource "rancher_stack" "this" {
